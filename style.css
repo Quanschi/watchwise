@@ -1,0 +1,71 @@
+/* No external fonts or scripts on purpose: nothing is loaded from third parties (GDPR). */
+:root {
+  --bg: #0e0f13;
+  --surface: #1a1c23;
+  --line: #2e313b;
+  --text: #f3f1ec;
+  --muted: #a3a7b3;
+  --soft: #d6d8de;
+  --accent: #ffb547;
+  --on-accent: #1a1206;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--accent); }
+a:hover { color: #ffc86e; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; }
+.logo { font-weight: 800; font-size: 20px; letter-spacing: -0.4px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.logo span { width: 32px; height: 32px; border-radius: 10px; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; font-size: 16px; }
+nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+nav a:hover { color: var(--text); }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: center; padding: 48px 0 72px; }
+.hero h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.05; letter-spacing: -1.5px; margin: 0 0 20px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p { color: var(--soft); font-size: 18px; margin: 0 0 28px; max-width: 34em; }
+.badge { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 24px; border-radius: 26px; background: var(--accent); color: var(--on-accent); font-weight: 700; text-decoration: none; }
+.badge.soon { background: var(--surface); color: var(--text); border: 1px solid var(--line); }
+
+.phone { justify-self: center; width: 260px; border-radius: 36px; border: 8px solid #23252d; background: var(--bg); padding: 28px 16px 20px; display: flex; flex-direction: column; gap: 10px; }
+.phone .q { font-weight: 700; font-size: 20px; line-height: 1.15; margin: 4px 0 8px; }
+.phone .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.phone .opt { border-radius: 12px; background: var(--surface); padding: 22px 10px 10px; font-size: 13px; font-weight: 600; border: 2px solid var(--surface); }
+.phone .opt.on { border-color: var(--accent); background: #2a2416; }
+.phone .bar { display: flex; gap: 4px; }
+.phone .bar i { flex: 1; height: 3px; border-radius: 2px; background: var(--line); }
+.phone .bar i.on { background: var(--accent); }
+.phone .cta { margin-top: 8px; height: 40px; border-radius: 20px; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+
+section { padding: 56px 0; border-top: 1px solid #1f2129; }
+section h2 { font-size: 28px; letter-spacing: -0.5px; margin: 0 0 28px; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.card { background: var(--surface); border-radius: 18px; padding: 24px; }
+.card b { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 18px; background: var(--accent); color: var(--on-accent); margin-bottom: 14px; }
+.card h3 { margin: 0 0 6px; font-size: 18px; }
+.card p { margin: 0; color: var(--soft); font-size: 15px; }
+
+.list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; padding: 0; margin: 0; list-style: none; }
+.list li { color: var(--soft); padding-left: 22px; position: relative; }
+.list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+footer { border-top: 1px solid #1f2129; padding: 32px 0 48px; color: var(--muted); font-size: 13px; }
+footer .row { display: flex; flex-wrap: wrap; gap: 16px 24px; justify-content: space-between; }
+footer a { color: var(--muted); }
+
+.legal { max-width: 760px; padding: 24px 0 64px; }
+.legal h1 { font-size: clamp(26px, 7.5vw, 36px); overflow-wrap: anywhere; letter-spacing: -0.8px; margin: 16px 0 8px; }
+.legal h2 { font-size: 20px; margin: 36px 0 8px; }
+.legal p, .legal li { color: var(--soft); }
+.legal .todo { background: #3a2a10; color: #ffd591; padding: 1px 6px; border-radius: 4px; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 24px; }
+  .steps, .list { grid-template-columns: 1fr; }
+}
